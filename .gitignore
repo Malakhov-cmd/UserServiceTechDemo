@@ -40,3 +40,6 @@ bin/
 
 logs/
 /src/main/resources/keystore.p12
+/src/main/resources/keystore_user_service.p12
+/src/main/resources/secrets.properties
+/src/main/resources/truststore_user_service.p12
