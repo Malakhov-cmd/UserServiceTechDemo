@@ -1,0 +1,39 @@
+spring:
+  config:
+    import:
+      - "classpath:secrets.properties"
+  application:
+    name: user-service
+
+server:
+  port: ${ssl.port}
+  ssl:
+    enabled: true
+    key-store: ${ssl.key-store}
+    key-store-password: ${ssl.key-store-password}
+    key-password: ${ssl.key-password}
+    key-store-type: PKCS12
+    key-alias: ${ssl.key-alias}
+    enabled-protocols: TLSv1.2,TLSv1.3
+  undertow:
+    buffer-size: 1024
+    direct-buffers: true
+    threads:
+      io: 8
+      worker: 64
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs
+
+# CUSTOM
+app:
+  log:
+    dir: ${log.main.dir}
